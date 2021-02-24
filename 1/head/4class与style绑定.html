@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+  </head>
+  <style></style>
+  <body>
+    <!--对象语法-->
+
+    <div
+      id="vm1"
+      class="static"
+      v-bind:class="{active:isActive,text:isText}"
+    ></div>
+    <div id="vm2" v-bind:class="classObject"></div>
+
+    <div id="vm3" v-bind:class="[activeClass,errorClass]"></div>
+    <script>
+      let vm = new Vue({
+        el: '#vm1',
+        data: {
+          isActive: true,
+          isText: true
+        }
+      });
+      let vm2 = new Vue({
+        el: '#vm2',
+        data: {
+          classObject: {
+            active: true,
+            text: true
+          }
+        }
+      });
+      let vm3 = new Vue({
+        el: '#vm3',
+        data: {
+          activeClass: 'active',
+          errorClass: 'Text'
+        }
+      });
+    </script>
+  </body>
+</html>

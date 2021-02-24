@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <div id="app">
+    <blog-post
+      v-bind:title="post.title"
+      v-bind:likes="post.likes"
+      v-bind:is-published="post.isPublished"
+      v-bind:comment-ids="post.commentIds"
+      v-bind:author="post.author"
+      v-bind="post"
+    ></blog-post>
+  </div>
+  <body>
+    <script>
+      Vue.component('blog-post', {
+        inheritAttrs: false, //禁止属性继承
+        props: {
+          title: { String, required: true }, //必填的字段
+          likes: { tpye: Number, default: 100 }, //默认值
+          isPublished: { type: Boolean, default: true },
+          commentIds: { type: Array, default: [1, 2, 3] },
+          author: {
+            type: Object,
+            default: function () {
+              //author不设置就是这里值
+              return {
+                name: '我是默认值',
+                age: 20
+              };
+            }
+          },
+          callback: Function,
+          contactsPromise: Promise, // 或任何其他构造
+          post: {}
+        },
+        template: `<h1>
+          name:{{title}}
+          <br>年龄:{{likes}}
+          <br>是否男性{{isPublished}}
+          <br>数据{{commentIds}}
+          <br>对象{{author}}
+          <br>所有{{post}}
+          </h1>`
+      });
+      let vm1 = new Vue({
+        el: '#app',
+        data: {
+          post: {
+            title: '范建峰',
+            likes: 20,
+            isPublished: true,
+            commentIds: [123, 456, 789],
+            author: {
+              name: '我叫范',
+              age: 20
+            },
+            post: {
+              id: 1,
+              title: '我的主题'
+            }
+          }
+        }
+      });
+
+      //外部提供给组件的值会替换掉组件内部设置好的值
+    </script>
+  </body>
+</html>

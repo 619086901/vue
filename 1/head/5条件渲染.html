@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <style></style>
+  <body>
+    <div id="app">
+      <div v-if="type === 'A'">A</div>
+      <div v-else-if="type === 'B'">B</div>
+      <div v-else-if="type === 'C'">C</div>
+      <div v-else>Not A/B/C</div>
+
+      <!--v-show只是切换了display 显示和不显示-->
+      <h1 v-show="ok">Hello!</h1>
+
+      <template v-if="loginType==='username'">
+        <label>Username</label>
+        <input placeholder="Enter your username" key="username-input" />
+      </template>
+      <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address" key="email-input" />
+      </template>
+      <input type="button" value="toggle login type" v-on:click="but1()" />
+    </div>
+
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          type: 'B',
+          ok: true,
+          loginType: 'username'
+        },
+        methods: {
+          but1: function () {
+            if (vm.loginType == 'username') {
+              vm.loginType = 'email';
+            } else {
+              vm.loginType = 'username';
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

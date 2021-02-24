@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1c1c1c;
+      position: relative;
+    }
+    #top {
+      height: 60px;
+      width: 100%;
+    }
+    #top:hover {
+      background-color: #020009;
+    }
+    #top ul {
+      height: 60px;
+      position: absolute;
+      width: 1920px;
+      margin: 0 auto;
+    }
+    #top ul:hover li {
+      border: 1px solid white;
+    }
+    #top ul li {
+      float: left;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      transition: 0.5s;
+      margin-top: -40px;
+      margin-left: 40px;
+    }
+    #top ul li:hover {
+      margin-top: 0px;
+    }
+    #top ul li a {
+      text-decoration: none;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      transform: scaleX(0);
+      transition: all 1s ease;
+    }
+    #top ul li a:visited {
+      color: black;
+    }
+    #top ul li a:link {
+      color: black;
+    }
+    #top ul li a:hover {
+      color: white;
+      border-bottom: 1px solid white;
+    }
+    #li1 {
+      position: absolute;
+      background-color: #2c3e50;
+      width: 200px;
+      height: 200px;
+      margin-left: 600px;
+      transform: rotate(0deg);
+      transition: 1s;
+      transform: scale(1);
+    }
+    #li1 rode {
+      position: absolute;
+      background-color: #2c3e50;
+      width: 200px;
+      height: 200px;
+      margin-left: 600px;
+      transform: rotate(0deg);
+      transition: 1s;
+      transform: scale(7);
+    }
+    #li2 {
+      position: absolute;
+      background-color: #2c3e50;
+      width: 200px;
+      height: 200px;
+      margin-left: 830px;
+      transition: 1s;
+      transform: scale(1);
+    }
+    #li3 {
+      position: absolute;
+      background-color: #2c3e50;
+      width: 200px;
+      height: 200px;
+      margin-left: 600px;
+      margin-top: 230px;
+      transition: 1s;
+      transform: scale(1);
+    }
+    #li4 {
+      position: absolute;
+      background-color: #2c3e50;
+      width: 200px;
+      height: 200px;
+      margin-left: 830px;
+      margin-top: 230px;
+      transition: 1s;
+      transform: scale(1);
+    }
+  </style>
+  <body>
+    <div id="top">
+      <ul id="top_ul" type="none">
+        <li><a href="head/1.html">1</a></li>
+        <li><a href="head/2.html">2</a></li>
+        <li><a href="head/class与style绑定.html">class与style绑定</a></li>
+        <li><a href="head/事件绑定.html">事件绑定</a></li>
+        <li><a href="head/列表渲染.html">列表渲染</a></li>
+        <li><a href="head/条件渲染.html">条件渲染</a></li>
+        <li><a href="head/表单输入绑定.html">表单输入绑定</a></li>
+        <li><a href="head/组件基础.html">组件基础</a></li>
+      </ul>
+    </div>
+    <div id="li1" onmousemove="li1()" onmouseout="li11()">
+      <span><a href="index.html">返回</a></span>
+    </div>
+    <div id="li2" onmousemove="li2()" onmouseout="li22()"></div>
+    <div id="li3" onmousemove="li3()" onmouseout="li33()"></div>
+    <div id="li4" onmousemove="li4()" onmouseout="li44()"></div>
+  </body>
+  <script>
+    var Li1 = document.getElementById('li1');
+    var Li2 = document.getElementById('li2');
+    var Li3 = document.getElementById('li3');
+    var Li4 = document.getElementById('li4');
+    function li11() {
+      Li1.style.marginLeft = '600px';
+      Li1.style.marginTop = '0px';
+      Li1.style.transform = 'rotate(0deg)';
+      Li1.style.backgroundColor = '#2c3e50';
+
+      Li2.style.marginLeft = '830px';
+      Li2.style.marginTop = '0px';
+      Li2.style.transform = 'rotate(0deg)';
+
+      Li3.style.marginLeft = '600px';
+      Li3.style.marginTop = '230px';
+      Li3.style.transform = 'rotate(0deg)';
+
+      Li4.style.marginLeft = '830px';
+      Li4.style.marginTop = '230px';
+      li4.style.transform = 'rotate(0deg)';
+    }
+    function li1() {
+      Li1.style.marginLeft = '615px';
+      Li1.style.marginTop = '15px';
+      Li1.style.transform = 'rotate(90deg)';
+      Li1.style.backgroundColor = '#1a242f';
+
+      Li2.style.marginLeft = '815px';
+      Li2.style.marginTop = '15px';
+      Li2.style.transform = 'rotate(90deg)';
+
+      Li3.style.marginLeft = '615px';
+      Li3.style.marginTop = '215px';
+      Li3.style.transform = 'rotate(90deg)';
+
+      Li4.style.marginLeft = '815px';
+      Li4.style.marginTop = '215px';
+      li4.style.transform = 'rotate(90deg)';
+    }
+    addEventListener('transitionend', function () {
+      Li1.classList.add('rode');
+    });
+  </script>
+</html>
